@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:icons_plus/icons_plus.dart';
 import '../controller/home_controller.dart';
+import '../widget/build_background.dart';
 import '../widget/cicrcle_glass_botton.dart';
 import '../widget/glass_button.dart';
 import '../widget/input_field.dart';
@@ -27,7 +28,7 @@ class HomePage extends GetView<HomeController> {
           return SingleChildScrollView(
             child: SizedBox(
               height: size.height,
-              child: Stack(children: [_buildBackground(size), _buildContent()]),
+              child: Stack(children: [buildBackground(size), _buildContent()]),
             ),
           );
         },
