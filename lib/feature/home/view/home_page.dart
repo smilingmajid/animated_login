@@ -28,7 +28,7 @@ class HomePage extends GetView<HomeController> {
           return SingleChildScrollView(
             child: SizedBox(
               height: size.height,
-              child: Stack(children: [buildBackground(size), _buildContent()]),
+              child: Stack(children: [buildBackground(size,controller), _buildContent()]),
             ),
           );
         },
