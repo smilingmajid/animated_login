@@ -1,6 +1,9 @@
+import 'package:animated_login/feature/home/widget/cricle_painter.dart';
 import 'package:flutter/widgets.dart';
 
-Widget buildBackground(Size size) {
+import '../controller/home_controller.dart';
+
+Widget buildBackground(Size size,  HomeController controller) {
     return Stack(
       children: [
         Positioned(
