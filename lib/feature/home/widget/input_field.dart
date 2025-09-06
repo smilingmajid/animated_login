@@ -17,14 +17,14 @@ class InputField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // final size = MediaQuery.of(context).size;
+    // final size = MediaQuery.of(context).size;
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
         child: Container(
-          // height: size.width / 8,
+          height: 65,
           // width: size.width / 1.2,
           // padding: EdgeInsets.only(right: size.width / 30),
           alignment: Alignment.center,
