@@ -82,19 +82,15 @@ class HomePage extends GetView<HomeController> {
         ),
         SizedBox(height: 32),
 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            GlassButton(
-              text: 'Create a new Account',
-              widthFactor: 1.2,
-              onTap: () {
-                HapticFeedback.lightImpact();
-                Fluttertoast.showToast(msg: 'Register button pressed');
-              },
-            ),
-          ],
+        GlassButton(
+          text: 'Create a new Account',
+          widthFactor: 1.2,
+          onTap: () {
+            HapticFeedback.lightImpact();
+            Fluttertoast.showToast(msg: 'Register button pressed');
+          },
         ),
+
         SizedBox(height: 32),
         Divider(
           // ignore: deprecated_member_use
@@ -112,7 +108,7 @@ class HomePage extends GetView<HomeController> {
               widthFactor: 4,
               onTap: () {
                 HapticFeedback.lightImpact();
-                Fluttertoast.showToast(msg: 'Facebook button pressed');
+                Fluttertoast.showToast(msg: 'Google button pressed');
               },
             ),
             SizedBox(width: 8),
