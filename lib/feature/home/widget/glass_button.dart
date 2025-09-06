@@ -15,7 +15,7 @@ class GlassButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+   // final size = MediaQuery.of(context).size;
 
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
@@ -26,8 +26,9 @@ class GlassButton extends StatelessWidget {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           child: Container(
-            height: size.width / 8,
-            width: size.width / widthFactor,
+            height: 65,
+            width: 500,
+            //width: size.width / widthFactor,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               // ignore: deprecated_member_use
