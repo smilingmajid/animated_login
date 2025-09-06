@@ -25,7 +25,7 @@ class InputField extends StatelessWidget {
         filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
         child: Container(
           height: 65,
-          // width: size.width / 1.2,
+           width:  500,
           // padding: EdgeInsets.only(right: size.width / 30),
           alignment: Alignment.center,
           decoration: BoxDecoration(
