@@ -3,12 +3,11 @@ import 'package:flutter/services.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:icons_plus/icons_plus.dart';
 import '../controller/home_controller.dart';
 import '../widget/build_background.dart';
-import '../widget/cicrcle_glass_botton.dart';
 import '../widget/glass_button.dart';
 import '../widget/input_field.dart';
+import '../widget/social_buttons_row.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
@@ -96,37 +95,7 @@ class HomePage extends GetView<HomeController> {
           thickness: 3,
         ),
         SizedBox(height: 32),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleGlassButton(
-              icon: Bootstrap.google,
-              widthFactor: 4,
-              onTap: () {
-                HapticFeedback.lightImpact();
-                Fluttertoast.showToast(msg: 'Google button pressed');
-              },
-            ),
-            SizedBox(width: 8),
-            CircleGlassButton(
-              icon: Bootstrap.facebook,
-              widthFactor: 4,
-              onTap: () {
-                HapticFeedback.lightImpact();
-                Fluttertoast.showToast(msg: 'Facebook button pressed');
-              },
-            ),
-            SizedBox(width: 8),
-            CircleGlassButton(
-              icon: Bootstrap.apple,
-              widthFactor: 4,
-              onTap: () {
-                HapticFeedback.lightImpact();
-                Fluttertoast.showToast(msg: 'Facebook button pressed');
-              },
-            ),
-          ],
-        ),
+        SocialButtonsRow(),
         Spacer(),
         Column(
           mainAxisAlignment: MainAxisAlignment.end,
