@@ -1,11 +1,11 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 
-class CicrcleGlassButton extends StatelessWidget {
+class CircleGlassButton extends StatelessWidget {
   final double widthFactor;
   final VoidCallback onTap;
   final IconData icon;
-  const CicrcleGlassButton({
+  const CircleGlassButton({
     super.key,
     required this.icon,
     required this.widthFactor,
@@ -14,8 +14,7 @@ class CicrcleGlassButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
+ 
     return ClipRRect(
       borderRadius: BorderRadius.circular(15),
       child: BackdropFilter(
@@ -25,8 +24,8 @@ class CicrcleGlassButton extends StatelessWidget {
           splashColor: Colors.transparent,
           highlightColor: Colors.transparent,
           child: Container(
-            height: size.width / 8,
-            width: size.width / 8,
+            height: 75, //size.width / 8,
+            width: 75, //size.width / 8,
             alignment: Alignment.center,
             decoration: BoxDecoration(
               // ignore: deprecated_member_use
