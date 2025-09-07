@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
+
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import '../controller/home_controller.dart';
 import '../widget/build_background.dart';
 import '../widget/glass_button.dart';
-import '../widget/input_field.dart';
+
+import '../widget/register_form.dart';
 import '../widget/social_buttons_row.dart';
 
 class HomePage extends GetView<HomeController> {
@@ -62,19 +63,7 @@ class HomePage extends GetView<HomeController> {
           ),
         ),
         Spacer(),
-        const InputField(icon: IconlyLight.profile, hintText: 'User name...'),
-        SizedBox(height: 16),
-        const InputField(
-          icon: IconlyLight.message,
-          hintText: 'Email...',
-          isEmail: true,
-        ),
-        SizedBox(height: 16),
-        const InputField(
-          icon: IconlyLight.lock,
-          hintText: 'Password...',
-          isPassword: true,
-        ),
+        RegisterForm(),
         SizedBox(height: 32),
 
         GlassButton(
