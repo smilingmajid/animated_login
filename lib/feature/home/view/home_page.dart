@@ -49,21 +49,17 @@ class HomePage extends GetView<HomeController> {
   ) {
     return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.only(
-            top: 100, //size.height * .1
-          ),
-          child: Text(
-            'animatd login',
-            style: TextStyle(
-              // ignore: deprecated_member_use
-              color: Colors.white.withOpacity(.7),
-              fontSize: 30,
-              fontFamily: 'ClashDisplay',
-              fontWeight: FontWeight.w500,
-              letterSpacing: 1,
-              wordSpacing: 4,
-            ),
+        Spacer(),
+        Text(
+          'animated login',
+          style: TextStyle(
+            // ignore: deprecated_member_use
+            color: Colors.white.withOpacity(.7),
+            fontSize: 30,
+            fontFamily: 'ClashDisplay',
+            fontWeight: FontWeight.w500,
+            letterSpacing: 1,
+            wordSpacing: 4,
           ),
         ),
         Spacer(),
@@ -103,7 +99,7 @@ class HomePage extends GetView<HomeController> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            CicrcleGlassButton(
+            CircleGlassButton(
               icon: Bootstrap.google,
               widthFactor: 4,
               onTap: () {
@@ -112,7 +108,7 @@ class HomePage extends GetView<HomeController> {
               },
             ),
             SizedBox(width: 8),
-            CicrcleGlassButton(
+            CircleGlassButton(
               icon: Bootstrap.facebook,
               widthFactor: 4,
               onTap: () {
@@ -121,7 +117,7 @@ class HomePage extends GetView<HomeController> {
               },
             ),
             SizedBox(width: 8),
-            CicrcleGlassButton(
+            CircleGlassButton(
               icon: Bootstrap.apple,
               widthFactor: 4,
               onTap: () {
