@@ -1,4 +1,3 @@
-
 import 'package:flutter/widgets.dart';
 
 class CirclePainter extends CustomPainter {
@@ -11,7 +10,12 @@ class CirclePainter extends CustomPainter {
     final paint =
         Paint()
           ..shader = const LinearGradient(
-            colors: [Color(0xffFD5E3D), Color(0xffC43990)],
+            colors: [
+              Color(
+                0xfffec303, //FD5E3D
+              ),
+              Color.fromARGB(255, 250, 64, 2),
+            ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ).createShader(Rect.fromCircle(center: Offset.zero, radius: radius));
