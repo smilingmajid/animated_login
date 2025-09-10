@@ -81,7 +81,47 @@ Widget contentWidget() {
               ),
               Spacer(),
               RegisterForm(),
+              SizedBox(height: 32),
+
+              GlassButton(
+                text: 'Create a new Account',
+                widthFactor: 1.2,
+                onTap: () {
+                  HapticFeedback.lightImpact();
+                  Fluttertoast.showToast(msg: 'Register button pressed');
+                },
+              ),
+
+              SizedBox(height: 32),
+              Divider(
+                // ignore: deprecated_member_use
+                color: Colors.white.withOpacity(.2),
+                indent: 50,
+                endIndent: 50,
+                thickness: 3,
+              ),
+              SizedBox(height: 32),
+              SocialButtonsRow(),
               Spacer(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  GlassButton(
+                    text: 'Login',
+                    widthFactor: 2,
+                    onTap: () {
+                      HapticFeedback.lightImpact();
+                      Fluttertoast.showToast(
+                        msg: 'Create a new account button pressed',
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 20,
+                    //size.height * .05
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -89,70 +129,69 @@ Widget contentWidget() {
     ),
   );
 }
-/*
-  Widget _buildContent(
-    //Size size
-  ) {
-    return Column(
-      children: [
-        Spacer(),
-        Text(
-          'animated login',
-          style: TextStyle(
-            // ignore: deprecated_member_use
-            color: Colors.white.withOpacity(.7),
-            fontSize: 30,
-            fontFamily: 'ClashDisplay',
-            fontWeight: FontWeight.w500,
-            letterSpacing: 1,
-            wordSpacing: 4,
-          ),
-        ),
-        Spacer(),
-        RegisterForm(),
-        SizedBox(height: 32),
 
-        GlassButton(
-          text: 'Create a new Account',
-          widthFactor: 1.2,
-          onTap: () {
-            HapticFeedback.lightImpact();
-            Fluttertoast.showToast(msg: 'Register button pressed');
-          },
-        ),
-
-        SizedBox(height: 32),
-        Divider(
+// ignore: unused_element
+Widget _buildContent(
+  //Size size
+) {
+  return Column(
+    children: [
+      Spacer(),
+      Text(
+        'animated login',
+        style: TextStyle(
           // ignore: deprecated_member_use
-          color: Colors.white.withOpacity(.2),
-          indent: 50,
-          endIndent: 50,
-          thickness: 3,
+          color: Colors.white.withOpacity(.7),
+          fontSize: 30,
+          fontFamily: 'ClashDisplay',
+          fontWeight: FontWeight.w500,
+          letterSpacing: 1,
+          wordSpacing: 4,
         ),
-        SizedBox(height: 32),
-        SocialButtonsRow(),
-        Spacer(),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            GlassButton(
-              text: 'Login',
-              widthFactor: 2,
-              onTap: () {
-                HapticFeedback.lightImpact();
-                Fluttertoast.showToast(
-                  msg: 'Create a new account button pressed',
-                );
-              },
-            ),
-            SizedBox(
-              height: 20,
-              //size.height * .05
-            ),
-          ],
-        ),
-      ],
-    );
-  }
+      ),
+      Spacer(),
+      RegisterForm(),
+      SizedBox(height: 32),
+
+      GlassButton(
+        text: 'Create a new Account',
+        widthFactor: 1.2,
+        onTap: () {
+          HapticFeedback.lightImpact();
+          Fluttertoast.showToast(msg: 'Register button pressed');
+        },
+      ),
+
+      SizedBox(height: 32),
+      Divider(
+        // ignore: deprecated_member_use
+        color: Colors.white.withOpacity(.2),
+        indent: 50,
+        endIndent: 50,
+        thickness: 3,
+      ),
+      SizedBox(height: 32),
+      SocialButtonsRow(),
+      Spacer(),
+      Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          GlassButton(
+            text: 'Login',
+            widthFactor: 2,
+            onTap: () {
+              HapticFeedback.lightImpact();
+              Fluttertoast.showToast(
+                msg: 'Create a new account button pressed',
+              );
+            },
+          ),
+          SizedBox(
+            height: 20,
+            //size.height * .05
+          ),
+        ],
+      ),
+    ],
+  );
 }
-*/
