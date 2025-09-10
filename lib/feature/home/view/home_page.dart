@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,7 +35,8 @@ class HomePage extends GetView<HomeController> {
                   buildBackground(size, controller),
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: _buildContent(),
+                    child: contentWidget(),
+                    //_buildContent(),
                   ),
                 ],
               ),
@@ -43,7 +46,50 @@ class HomePage extends GetView<HomeController> {
       ),
     );
   }
+}
 
+Widget contentWidget() {
+  return Center(
+    child: ClipRRect(
+      borderRadius: BorderRadius.circular(30),
+
+      child: BackdropFilter(
+        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+        child: Container(
+          height: 1600,
+          width: 800,
+          decoration: BoxDecoration(
+            // ignore: deprecated_member_use
+            color: Colors.white.withOpacity(0.05),
+            borderRadius: BorderRadius.circular(30),
+            border: Border.all(color: Colors.white, width: 0.5),
+          ),
+          child: Column(
+            children: [
+              Spacer(),
+              Text(
+                'animated login',
+                style: TextStyle(
+                  // ignore: deprecated_member_use
+                  color: Colors.white.withOpacity(.7),
+                  fontSize: 30,
+                  fontFamily: 'ClashDisplay',
+                  fontWeight: FontWeight.w500,
+                  letterSpacing: 1,
+                  wordSpacing: 4,
+                ),
+              ),
+              Spacer(),
+              RegisterForm(),
+              Spacer(),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+/*
   Widget _buildContent(
     //Size size
   ) {
@@ -109,3 +155,4 @@ class HomePage extends GetView<HomeController> {
     );
   }
 }
+*/

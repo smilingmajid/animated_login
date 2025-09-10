@@ -25,12 +25,12 @@ class InputField extends StatelessWidget {
         filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
         child: Container(
           height: 65,
-           width:  500,
+          width: 500,
           // padding: EdgeInsets.only(right: size.width / 30),
           alignment: Alignment.center,
           decoration: BoxDecoration(
             // ignore: deprecated_member_use
-            color: Colors.white.withOpacity(.05),
+            color: Colors.white.withOpacity(.15),
             borderRadius: BorderRadius.circular(15),
           ),
           child: TextField(
