@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../view/success_page.dart';
+
 enum ButtonState { idle, loading, success }
 
 class ButtonController extends GetxController {
