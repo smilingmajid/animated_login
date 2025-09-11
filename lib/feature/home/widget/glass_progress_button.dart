@@ -1,9 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../controller/button_controller.dart';
-
 
 class GlassProgressButton extends StatelessWidget {
   const GlassProgressButton({super.key});
@@ -15,71 +13,80 @@ class GlassProgressButton extends StatelessWidget {
     return Obx(() {
       String text = "";
       IconData? icon;
-      // ignore: deprecated_member_use
-      Color color = Colors.white.withOpacity(.25);
+      Color bgColor = Colors.white.withOpacity(.25);
+
+      double width = 200;
+      double borderRadius = 15;
 
       switch (controller.state.value) {
         case ButtonState.idle:
           text = "Send";
           icon = Icons.send;
+          bgColor = Colors.white.withOpacity(.25);
           break;
         case ButtonState.loading:
-          text = "Loading...";
+          text = "";
           icon = Icons.hourglass_empty;
+          bgColor = Colors.white.withOpacity(.25);
+          width = 65; // ✅ دکمه گرد میشه
+          borderRadius = 100;
           break;
         case ButtonState.success:
           text = "Success";
           icon = Icons.check_circle;
+          bgColor = Colors.green.withOpacity(.4);
           break;
         case ButtonState.fail:
           text = "Failed";
           icon = Icons.cancel;
+          bgColor = Colors.red.withOpacity(.4);
           break;
       }
 
       return ClipRRect(
-        borderRadius: BorderRadius.circular(15),
+        borderRadius: BorderRadius.circular(borderRadius),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 15, sigmaY: 15),
           child: InkWell(
             onTap: controller.onPressed,
             splashColor: Colors.transparent,
             highlightColor: Colors.transparent,
-            child: Container(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 400),
               height: 65,
-              width: 200,
+              width: width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: color,
-                borderRadius: BorderRadius.circular(15),
+                color: bgColor,
+                borderRadius: BorderRadius.circular(borderRadius),
               ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (controller.state.value == ButtonState.loading)
-                    const SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: Colors.white,
+              child:
+                  controller.state.value == ButtonState.loading
+                      ? const SizedBox(
+                        width: 28,
+                        height: 28,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 3,
+                          color: Colors.white,
+                        ),
+                      )
+                      : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(icon, color: Colors.white.withOpacity(.9)),
+                          if (text.isNotEmpty) ...[
+                            const SizedBox(width: 8),
+                            Text(
+                              text,
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white.withOpacity(.9),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ],
+                        ],
                       ),
-                    )
-                  else
-                    // ignore: deprecated_member_use
-                    Icon(icon, color: Colors.white.withOpacity(.8)),
-                  const SizedBox(width: 8),
-                  Text(
-                    text,
-                    style: TextStyle(
-                      fontSize: 18,
-                      // ignore: deprecated_member_use
-                      color: Colors.white.withOpacity(.8),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
             ),
           ),
         ),
