@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import '../controller/button_controller.dart';
 import '../controller/home_controller.dart';
 import '../widget/build_background.dart';
-import '../widget/glass_button.dart';
+import '../widget/build_content_widget.dart';
 
-import '../widget/glass_progress_button.dart';
-import '../widget/register_form.dart';
-import '../widget/social_buttons_row.dart';
 
 class HomePage extends GetView<HomeController> {
   const HomePage({super.key});
