@@ -32,16 +32,17 @@ class GlassButton extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               // ignore: deprecated_member_use
-              color: Colors.white.withOpacity(.05),
+              color: Colors.white.withOpacity(.25),
               borderRadius: BorderRadius.circular(15),
             ),
             child: Text(
               text,
 
               style: TextStyle(
+                fontSize: 18,
                 // ignore: deprecated_member_use
                 color: Colors.white.withOpacity(.8),
-                fontWeight: FontWeight.w700,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
