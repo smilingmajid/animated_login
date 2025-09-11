@@ -27,15 +27,13 @@ class GlassProgressButton extends StatelessWidget {
 
         case ButtonState.loading:
           text = "";
-          width = 65;
-
+          width = 65; // دکمه دایره‌ای
           borderRadius = 100;
           break;
 
         case ButtonState.success:
-          text = "account has been successfully created";
+          text = "Account has been successfully created";
           icon = Icons.check_circle;
-          // ignore: deprecated_member_use
           bgColor = Colors.green;
           break;
       }
@@ -58,6 +56,7 @@ class GlassProgressButton extends StatelessWidget {
                 color: bgColor.withOpacity(0.15),
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
+              // ✅ وقتی Loading هست، فقط ProgressIndicator نشون بده
               child:
                   controller.state.value == ButtonState.loading
                       ? const SizedBox(
@@ -70,19 +69,25 @@ class GlassProgressButton extends StatelessWidget {
                       )
                       : Row(
                         mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min, // فقط به اندازه محتوا
                         children: [
                           if (icon != null)
                             // ignore: deprecated_member_use
                             Icon(icon, color: bgColor.withOpacity(.9)),
                           if (text.isNotEmpty) ...[
                             const SizedBox(width: 8),
-                            Text(
-                              text,
-                              style: TextStyle(
-                                fontSize: 18,
-                                // ignore: deprecated_member_use
-                                color: bgColor.withOpacity(.9),
-                                fontWeight: FontWeight.w500,
+                            Flexible(
+                              child: Text(
+                                text,
+                                overflow:
+                                    TextOverflow
+                                        .ellipsis, // متن طولانی بریده نشه
+                                style: TextStyle(
+                                  fontSize: 18,
+                                  // ignore: deprecated_member_use
+                                  color: bgColor.withOpacity(.9),
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],
