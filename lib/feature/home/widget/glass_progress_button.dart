@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/button_controller.dart';
 
-
 class GlassProgressButton extends StatelessWidget {
   const GlassProgressButton({super.key});
 
@@ -14,27 +13,30 @@ class GlassProgressButton extends StatelessWidget {
     return Obx(() {
       String text = "";
       IconData? icon;
+      // ignore: deprecated_member_use
       Color bgColor = Colors.white.withOpacity(.25);
 
-      double width = 200;
+      double width = 500;
       double borderRadius = 15;
 
       switch (controller.state.value) {
         case ButtonState.idle:
-          text = "Send";
-          icon = Icons.send;
+          text = "Create a New Account";
+          icon = null;
           break;
 
         case ButtonState.loading:
           text = "";
-          width = 65; // دکمه گرد
+          width = 65;
+
           borderRadius = 100;
           break;
 
         case ButtonState.success:
-          text = "Success";
+          text = "account has been successfully created";
           icon = Icons.check_circle;
-          bgColor = Colors.green.withOpacity(.4);
+          // ignore: deprecated_member_use
+          bgColor = Colors.green;
           break;
       }
 
@@ -52,36 +54,40 @@ class GlassProgressButton extends StatelessWidget {
               width: width,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: bgColor,
+                // ignore: deprecated_member_use
+                color: bgColor.withOpacity(0.15),
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
-              child: controller.state.value == ButtonState.loading
-                  ? const SizedBox(
-                      width: 28,
-                      height: 28,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 3,
-                        color: Colors.white,
-                      ),
-                    )
-                  : Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        if (icon != null)
-                          Icon(icon, color: Colors.white.withOpacity(.9)),
-                        if (text.isNotEmpty) ...[
-                          const SizedBox(width: 8),
-                          Text(
-                            text,
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white.withOpacity(.9),
-                              fontWeight: FontWeight.w600,
+              child:
+                  controller.state.value == ButtonState.loading
+                      ? const SizedBox(
+                        width: 28,
+                        height: 28,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 3,
+                          color: Colors.white,
+                        ),
+                      )
+                      : Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          if (icon != null)
+                            // ignore: deprecated_member_use
+                            Icon(icon, color: bgColor.withOpacity(.9)),
+                          if (text.isNotEmpty) ...[
+                            const SizedBox(width: 8),
+                            Text(
+                              text,
+                              style: TextStyle(
+                                fontSize: 18,
+                                // ignore: deprecated_member_use
+                                color: bgColor.withOpacity(.9),
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
+                          ],
                         ],
-                      ],
-                    ),
+                      ),
             ),
           ),
         ),
