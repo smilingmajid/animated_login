@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../controller/button_controller.dart';
 
+
 class GlassProgressButton extends StatelessWidget {
   const GlassProgressButton({super.key});
 
@@ -22,24 +23,18 @@ class GlassProgressButton extends StatelessWidget {
         case ButtonState.idle:
           text = "Send";
           icon = Icons.send;
-          bgColor = Colors.white.withOpacity(.25);
           break;
+
         case ButtonState.loading:
           text = "";
-          icon = Icons.hourglass_empty;
-          bgColor = Colors.white.withOpacity(.25);
-          width = 65; // ✅ دکمه گرد میشه
+          width = 65; // دکمه گرد
           borderRadius = 100;
           break;
+
         case ButtonState.success:
           text = "Success";
           icon = Icons.check_circle;
           bgColor = Colors.green.withOpacity(.4);
-          break;
-        case ButtonState.fail:
-          text = "Failed";
-          icon = Icons.cancel;
-          bgColor = Colors.red.withOpacity(.4);
           break;
       }
 
@@ -60,33 +55,33 @@ class GlassProgressButton extends StatelessWidget {
                 color: bgColor,
                 borderRadius: BorderRadius.circular(borderRadius),
               ),
-              child:
-                  controller.state.value == ButtonState.loading
-                      ? const SizedBox(
-                        width: 28,
-                        height: 28,
-                        child: CircularProgressIndicator(
-                          strokeWidth: 3,
-                          color: Colors.white,
-                        ),
-                      )
-                      : Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(icon, color: Colors.white.withOpacity(.9)),
-                          if (text.isNotEmpty) ...[
-                            const SizedBox(width: 8),
-                            Text(
-                              text,
-                              style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.white.withOpacity(.9),
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ],
-                        ],
+              child: controller.state.value == ButtonState.loading
+                  ? const SizedBox(
+                      width: 28,
+                      height: 28,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 3,
+                        color: Colors.white,
                       ),
+                    )
+                  : Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        if (icon != null)
+                          Icon(icon, color: Colors.white.withOpacity(.9)),
+                        if (text.isNotEmpty) ...[
+                          const SizedBox(width: 8),
+                          Text(
+                            text,
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.white.withOpacity(.9),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
             ),
           ),
         ),
