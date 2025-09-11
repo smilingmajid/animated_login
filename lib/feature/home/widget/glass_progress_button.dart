@@ -27,12 +27,12 @@ class GlassProgressButton extends StatelessWidget {
 
         case ButtonState.loading:
           text = "";
-          width = 65; // دکمه دایره‌ای
+          width = 65;
           borderRadius = 100;
           break;
 
         case ButtonState.success:
-          text = "Account has been successfully created";
+          text = "successfully";
           icon = Icons.check_circle;
           bgColor = Colors.green;
           break;
