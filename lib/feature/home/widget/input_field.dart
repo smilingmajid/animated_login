@@ -30,7 +30,7 @@ class InputField extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             // ignore: deprecated_member_use
-            color: Colors.white.withOpacity(.15),
+            color: Colors.white.withOpacity(.05),
             borderRadius: BorderRadius.circular(15),
           ),
           child: TextField(
