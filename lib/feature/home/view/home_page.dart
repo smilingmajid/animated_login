@@ -71,14 +71,7 @@ Widget _buildContent(
       RegisterForm(),
       SizedBox(height: 32),
 
-      GlassButton(
-        text: 'Create a new Account',
-        widthFactor: 1.2,
-        onTap: () {
-          HapticFeedback.lightImpact();
-          Fluttertoast.showToast(msg: 'Register button pressed');
-        },
-      ),
+      GlassProgressButton(),
 
       SizedBox(height: 32),
       Divider(
@@ -108,7 +101,7 @@ Widget _buildContent(
             height: 20,
             //size.height * .05
           ),
-          GlassProgressButton(),
+          // GlassProgressButton(),
         ],
       ),
     ],
